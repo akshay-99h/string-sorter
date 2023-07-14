@@ -25,25 +25,28 @@
     <div id="contents">
       <h1>String Sorter</h1>
       <div class="container">
-        <input
-          type="text"
-          id="inputString"
-          placeholder="Enter comma-separated values"
-        />
-        <button onclick="sortString()">Submit</button>
-        <div id="outputArea"></div>
+        <form>
+          <input
+            type="text"
+            id="inputString"
+            placeholder="Enter comma-separated values"
+          />
+          <button type="submit">Submit</button>
+          <div id="outputArea"></div>
+        </form>
       </div>
       <div id="outputArea"></div>
     </div>
     <script>
-      function sortString() {
+      document.querySelector("form").addEventListener("submit", (event) => {
+        event.preventDefault();
         document.getElementById("outputArea").textContent = document
           .getElementById("inputString")
           .value.toLowerCase()
           .split(", ")
           .sort()
           .join(", ");
-      }
+      });
     </script>
   </body>
 </html>
